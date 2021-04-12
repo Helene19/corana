@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateVaccinationUserTable extends Migration
+class CreateVaccinationsUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateVaccinationUserTable extends Migration
      */
     public function up()
     {
-        Schema::create('vaccination_user', function (Blueprint $table) {
+        Schema::create('vaccinations_users', function (Blueprint $table) {
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->bigInteger('vaccination_id')->unsigned();
             $table->foreign('vaccination_id')
-                ->references('id')->on('vaccination')
+                ->references('id')->on('vaccinations')
                 ->onDelete('cascade');
             $table->timestamps();
             $table->primary(['user_id', 'vaccination_id']);
@@ -31,6 +31,6 @@ class CreateVaccinationUserTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('vaccination_user');
+        Schema::dropIfExists('vaccinations_users');
     }
 }

@@ -16,6 +16,6 @@ class DatabaseSeeder extends Seeder
         // User::factory(10)->create();
         $this->call(VaccinationPlaceTableSeeder::class);
         $this->call(UserTableSeeder::class);
-        $this->call(VaccinationTableSeeder::class);
+        $this->call(VaccinationsTableSeeder::class);
     }
 }
