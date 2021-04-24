@@ -55,7 +55,7 @@ class User extends Authenticatable
     /**
      * user could have one or none vaccination
      */
-    public function vaccinations() : BelongsToMany {
+    public function userVaccinations() : BelongsToMany {
         return $this->belongsToMany(Vaccination::class)->withTimestamps();
     }
 }

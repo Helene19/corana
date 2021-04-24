@@ -15,6 +15,7 @@ class VaccinationPlaces extends Migration
     {
         Schema::create('vaccination_places', function (Blueprint $table) {
             $table->id();
+            $table->integer('vaccination_place_nr')->unique();
             $table->string('street');
             $table->string('streetnr');
             $table->string('city');
@@ -32,6 +33,6 @@ class VaccinationPlaces extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('vaccination_places');
     }
 }

@@ -15,6 +15,7 @@ class Vaccinations extends Migration
     {
         Schema::create('vaccinations', function (Blueprint $table) {
             $table->id();
+            $table->integer('vaccination_nr')->unique();
             $table->date('date');
             $table->string('starttime');
             $table->string('endtime');
@@ -35,6 +36,6 @@ class Vaccinations extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('vaccinations');
     }
 }

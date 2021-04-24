@@ -7,25 +7,29 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-
 class Vaccination extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['date', 'starttime', 'endtime', 'max_participants', 'vaccination_type'];
+    protected $fillable = [
+        'vaccination_nr',
+        'date',
+        'starttime',
+        'endtime',
+        'max_participants',
+        'vaccination_type'];
 
     /**
-     *  Vaccination can only be at one Place
+     * At one vaccination place there could be multiple vaccinations
      */
-    public function vaccinationPlace() : BelongsTo
-    {
+    public function vaccinationPlace() : BelongsTo {
         return $this->belongsTo(VaccinationPlace::class, 'vaccination_place');
     }
 
     /**
-     * vaccination belongs to one or none user
+     * Vaccination belongs to more or none users
      */
-    public function users() : BelongsToMany {
+    public function vaccinationUsers() : BelongsToMany {
         return $this->belongsToMany(User::class)->withTimestamps();
     }
 }

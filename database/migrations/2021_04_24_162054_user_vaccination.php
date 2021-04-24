@@ -14,13 +14,10 @@ class UserVaccination extends Migration
     public function up()
     {
         Schema::create('user_vaccination', function (Blueprint $table) {
+            $table->foreignId('vaccination_id')->constrained()->onDelete('cascade');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->bigInteger('vaccination_id')->unsigned();
-            $table->foreign('vaccination_id')
-                ->references('id')->on('vaccinations')
-                ->onDelete('cascade');
             $table->timestamps();
-            $table->primary(['user_id', 'vaccination_id']);
+            $table->primary(['vaccination_id', 'user_id']);
         });
     }
 
