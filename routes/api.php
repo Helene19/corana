@@ -17,3 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('vaccinations', [\App\Http\Controllers\VaccinationController::class, 'index']);
+Route::get('vaccination/{vaccination_nr}', [\App\Http\Controllers\VaccinationController::class, 'findByVaccinationNr']);
+Route::post('vaccination', [\App\Http\Controllers\VaccinationController::class, 'save']);
+Route::put('vaccination/{vaccination_nr}', [\App\Http\Controllers\VaccinationController::class, 'update']);
