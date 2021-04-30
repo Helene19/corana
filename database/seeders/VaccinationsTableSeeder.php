@@ -28,6 +28,7 @@ class VaccinationsTableSeeder extends Seeder
         $vaccination1->endtime = '13:00';
         $vaccination1->max_participants = 16;
         $vaccination1->vaccination_type = "Biontech/Pfizer";
+
         // relationship between vaccination and vaccination place
         $vaccination1->vaccinationPlace()->associate(1);
         $vaccination1->save();
