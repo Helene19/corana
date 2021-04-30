@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class UserVaccination extends Migration
+class CreateUserVaccinationTable extends Migration
 {
     /**
      * Run the migrations.
@@ -28,6 +28,6 @@ class UserVaccination extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('user_vaccination');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Vaccinations extends Migration
+class CreateVaccinationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -19,7 +19,7 @@ class Vaccinations extends Migration
             $table->date('date');
             $table->string('starttime');
             $table->string('endtime');
-            $table->integer('max_participants')->default('10');
+            $table->integer('max_participants')->default('5');
             $table->string('vaccination_type');
             $table->bigInteger('vaccination_place')->unsigned();
             $table->foreign('vaccination_place')

@@ -17,19 +17,22 @@ class Vaccination extends Model
         'starttime',
         'endtime',
         'max_participants',
-        'vaccination_type'];
+        'vaccination_type',
+        'vaccination_place'];
 
     /**
      * At one vaccination place there could be multiple vaccinations
      */
-    public function vaccinationPlace() : BelongsTo {
+    public function vaccinationPlace() : BelongsTo
+    {
         return $this->belongsTo(VaccinationPlace::class, 'vaccination_place');
     }
 
     /**
      * Vaccination belongs to more or none users
      */
-    public function vaccinationUsers() : BelongsToMany {
+    public function vaccinationUsers() : BelongsToMany
+    {
         return $this->belongsToMany(User::class)->withTimestamps();
     }
 }

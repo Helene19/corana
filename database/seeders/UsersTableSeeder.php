@@ -133,8 +133,5 @@ class UsersTableSeeder extends Seeder
         $user5->email = "lustig.ernst@gmx.at";
         $user5->password = bcrypt('secret');
         $user5->save();
-
-
-
     }
 }
