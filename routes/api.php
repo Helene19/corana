@@ -22,4 +22,6 @@ Route::get('vaccinations', [\App\Http\Controllers\VaccinationController::class, 
 Route::get('vaccination/{vaccination_nr}', [\App\Http\Controllers\VaccinationController::class, 'findByVaccinationNr']);
 Route::post('vaccination', [\App\Http\Controllers\VaccinationController::class, 'save']);
 Route::put('vaccination/{vaccination_nr}', [\App\Http\Controllers\VaccinationController::class, 'update']);
-Route::post('vaccination/{vaccination_nr}', [\App\Http\Controllers\VaccinationController::class, 'update']);
+Route::delete('vaccination/{vaccination_nr}', [\App\Http\Controllers\VaccinationController::class, 'delete']);
+Route::post('vaccination/registration', [\App\Http\Controllers\VaccinationController::class, 'saveUserToVaccination']);
+Route::put('vaccination/user/{userId}', [\App\Http\Controllers\UserController::class, 'editToVaccinated']);

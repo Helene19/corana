@@ -49,7 +49,6 @@ class VaccinationController extends Controller
         DB::beginTransaction();
 
         try {
-
             $vaccination = Vaccination::where('vaccination_nr', $vaccinationNr)->
             with(['vaccinationPlace', 'vaccinationUsers'])->first();
 
@@ -112,7 +111,7 @@ class VaccinationController extends Controller
         try {
             $request = $this->parseRequest($request);
             $userId = $request["userId"];
-            $vaccinationNr = $request["vaccinationNr"];
+            $vaccinationNr = $request["vaccination_nr"];
 
             $user = User::where('id', $userId)->first();
 
@@ -139,35 +138,7 @@ class VaccinationController extends Controller
         }
     }
 
-    public function editToVaccinated(Request $request, int $userId) : JsonResponse {
 
-        DB::beginTransaction();
-
-        try {
-
-            $user = Vaccination::where('id', $userId)->first();
-
-            if($user != null) {
-                $request = $this->parseRequest($request);
-                $user->update($request->all());
-
-                $user->save();
-
-            } else {
-                throw new \Exception("user does not exist");
-            }
-
-            DB::commit();
-            $user1 = User::where('id', $userId)->first();
-            return response()->json($user1, 201);
-
-
-        } catch (\Exception $e) {
-            DB::rollBack();
-            return response()->json("change user to vaccinated failed: ". $e->getMessage(), 420);
-        }
-
-    }
 
     /**
      * modify / convert values if needed
