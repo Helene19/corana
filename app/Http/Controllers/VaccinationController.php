@@ -26,6 +26,11 @@ class VaccinationController extends Controller
         return $vaccination;
     }
 
+    public function checkVaccinationNr(int $vaccinationNr) {
+        $vaccination = Vaccination::where('vaccination_nr', $vaccinationNr)->first();
+        return $vaccination != null ? response()->json(true, 200) : response()->json(false, 200);
+    }
+
     public function save(Request $request) : JsonResponse {
         $request = $this->parseRequest($request);
 
