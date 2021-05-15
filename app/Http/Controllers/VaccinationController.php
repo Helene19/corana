@@ -125,16 +125,21 @@ class VaccinationController extends Controller
             $user = User::where('id', $userId)->first();
 
             if($vaccination != null) {
-                if($user != null) {
-                    if(count($user['userVaccinations']) == 0) {
-                        $vaccination->vaccinationUsers()->attach($user['id']);
-                        $vaccination->save();
+                if(count($vaccination['vaccinationUsers']) != $vaccination['max_participants']) {
+                    if($user != null) {
+                        if(count($user['userVaccinations']) == 0) {
+                            $vaccination->vaccinationUsers()->attach($user['id']);
+                            $vaccination->save();
+                        } else {
+                            throw new \Exception("user is already registered");
+                        }
                     } else {
-                        throw new \Exception("user is already registered");
+                        throw new \Exception("user does not exist");
                     }
                 } else {
-                    throw new \Exception("user does not exist ".$request);
+                    throw new \Exception("The maximum number of participants has already been reached.");
                 }
+
             } else {
                 throw new \Exception("vaccination does not exist");
             }
