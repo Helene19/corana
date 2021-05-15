@@ -31,5 +31,6 @@ Route::post('auth/login', [\App\Http\Controllers\AuthController::class,'login'])
 Route::get('vaccinations', [\App\Http\Controllers\VaccinationController::class, 'index']);
 Route::get('vaccinationplaces', [\App\Http\Controllers\VaccinationPlaceController::class, 'index']);
 Route::get('vaccination/{vaccination_nr}', [\App\Http\Controllers\VaccinationController::class, 'findByVaccinationNr']);
+Route::get('user/{userId}', [\App\Http\Controllers\UserController::class, 'getUserById']);
 Route::get('vaccination/checkNr/{vaccination_nr}', [\App\Http\Controllers\VaccinationController::class, 'checkVaccinationNr']);
 

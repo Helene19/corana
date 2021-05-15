@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
+    public function getUserById(int $userId) : User {
+        $user = User::where('id', $userId)->with('userVaccinations')->first();
+        return $user;
+    }
+
     public function editToVaccinated(Request $request, int $userId) : JsonResponse {
 
         DB::beginTransaction();
