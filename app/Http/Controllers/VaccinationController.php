@@ -133,7 +133,7 @@ class VaccinationController extends Controller
                         throw new \Exception("user is already registered");
                     }
                 } else {
-                    throw new \Exception("user does not exist");
+                    throw new \Exception("user does not exist ".$request);
                 }
             } else {
                 throw new \Exception("vaccination does not exist");
