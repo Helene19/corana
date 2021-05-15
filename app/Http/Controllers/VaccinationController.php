@@ -79,7 +79,7 @@ class VaccinationController extends Controller
             }
 
             DB::commit();
-            $vaccination1= Vaccination::with(['vaccinationPlace', 'vaccinationUsers'])
+            $vaccination1 = Vaccination::with(['vaccinationPlace', 'vaccinationUsers'])
                 ->where('vaccination_nr', $vaccinationNr)->first();
             return response()->json($vaccination1, 201);
 
@@ -112,27 +112,33 @@ class VaccinationController extends Controller
 
     }
 
-    public function saveUserToVaccination (Request $request) : JsonResponse {
+    public function saveUserToVaccination (Request $request, int $vaccinationNr) : JsonResponse {
         DB::beginTransaction();
 
         try {
-            $request = $this->parseRequest($request);
-            $userId = $request["userId"];
-            $vaccinationNr = $request["vaccination_nr"];
-
-            $user = User::where('id', $userId)->first();
-
             $vaccination = Vaccination::where('vaccination_nr', $vaccinationNr)->
             with(['vaccinationPlace', 'vaccinationUsers'])->first();
 
-            if($vaccination == null) {
-                throw new \Exception("vaccination does not exist");
-            } else if($user == null) {
-                throw new \Exception("user does not exist");
+            $request = $this->parseRequest($request);
+            $userId = $request["userId"];
+
+            $user = User::where('id', $userId)->first();
+
+            if($vaccination != null) {
+                if($user != null) {
+                    if(count($user['userVaccinations']) == 0) {
+                        $vaccination->vaccinationUsers()->attach($user['id']);
+                        $vaccination->save();
+                    } else {
+                        throw new \Exception("user is already registered");
+                    }
+                } else {
+                    throw new \Exception("user does not exist");
+                }
             } else {
-                $vaccination->vaccinationUsers()->attach($user);
-                $vaccination->save();
+                throw new \Exception("vaccination does not exist");
             }
+
 
             DB::commit();
             $vaccination1 = Vaccination::with(['vaccinationPlace', 'vaccinationUsers'])
