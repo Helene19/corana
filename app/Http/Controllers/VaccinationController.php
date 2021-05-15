@@ -63,14 +63,16 @@ class VaccinationController extends Controller
 
                 $ids = [];
                 //save users
-                if (isset($request['users']) && is_array($request['users'])) {
-                    foreach ($request['users'] as $user) {
+                if (isset($request['vaccinationUsers']) && is_array($request['vaccinationUsers'])) {
+                    foreach ($request['vaccinationUsers'] as $user) {
                         array_push($ids, $user['id']);
                     }
                 }
 
-                $vaccination->vaccinationUsers()->sync($ids);
-                $vaccination->save();
+                foreach ($ids as $id) {
+                    $vaccination->vaccinationUsers()->attach($id);
+                    $vaccination->save();
+                }
 
             } else {
                 throw new \Exception("vaccination does not exist");
