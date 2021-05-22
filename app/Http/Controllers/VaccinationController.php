@@ -16,10 +16,6 @@ class VaccinationController extends Controller
         return $vaccinations;
     }
 
-    public function show(Vaccination $vaccination) {
-        return view('vaccinations.show', compact('vaccination'));
-    }
-
     public function findByVaccinationNr(int $vaccinationNr) : Vaccination {
         $vaccination = Vaccination::where('vaccination_nr', $vaccinationNr)->
         with(['vaccinationPlace', 'vaccinationUsers'])->first();

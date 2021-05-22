@@ -20,8 +20,8 @@ class CreateUsersTable extends Migration
             $table->boolean('admin')->default(false);
             $table->string('gender');
             $table->date('birthdate');
-            $table->integer('phonenumber');
-            $table->integer('sv_number');
+            $table->string('phonenumber');
+            $table->string('sv_number');
             $table->boolean('vaccinated')->default(false);
             $table->string('street');
             $table->string('streetnr');
