@@ -45,7 +45,7 @@ class UsersTableSeeder extends Seeder
         $admin2->streetnr = "98";
         $admin2->city = "Wien";
         $admin2->postcode = 1010;
-        $admin2->email = "tomHuber@gmail.com";
+        $admin2->email = "thomas.huber@gmail.com";
         $admin2->password = bcrypt('thomas');
         $admin2->save();
 
@@ -62,7 +62,7 @@ class UsersTableSeeder extends Seeder
         $user1->streetnr = "32";
         $user1->city = "Wien";
         $user1->postcode = 1210;
-        $user1->email = "hilde.bauer@gmail.com";
+        $user1->email = "hildegard.bauer@gmail.com";
         $user1->password = bcrypt('hildegard');
         $user1->save();
 
@@ -79,7 +79,7 @@ class UsersTableSeeder extends Seeder
         $user2->streetnr = "2";
         $user2->city = "Liezen";
         $user2->postcode = 8940;
-        $user2->email = "gitti.stieger@gmail.com";
+        $user2->email = "brigitte.stieger@gmail.com";
         $user2->password = bcrypt('brigitte');
         $user2->save();
 
@@ -96,7 +96,7 @@ class UsersTableSeeder extends Seeder
         $user3->streetnr = "22";
         $user3->city = "Gallspach";
         $user3->postcode = 4713;
-        $user3->email = "jo.mayr45@gmx.at";
+        $user3->email = "jochen.mayr@gmail.at";
         $user3->password = bcrypt('jochen');
         $user3->save();
 
@@ -130,7 +130,7 @@ class UsersTableSeeder extends Seeder
         $user5->streetnr = "4a";
         $user5->city = "Wien";
         $user5->postcode = 1010;
-        $user5->email = "lustig.ernst@gmx.at";
+        $user5->email = "lustig.ernst@gmail.at";
         $user5->password = bcrypt('ernst');
         $user5->save();
 
@@ -164,7 +164,7 @@ class UsersTableSeeder extends Seeder
         $user7->streetnr = "60";
         $user7->city = "St. Pölten";
         $user7->postcode = 3100;
-        $user7->email = "lisaFeldinger@gmx.at";
+        $user7->email = "lisa.feldinger@gmail.at";
         $user7->password = bcrypt('lisa');
         $user7->save();
 
@@ -181,7 +181,7 @@ class UsersTableSeeder extends Seeder
         $user8->streetnr = "23d";
         $user8->city = "Gunskirchen";
         $user8->postcode = 4650;
-        $user8->email = "antonia.schiffner@gmx.at";
+        $user8->email = "antonia.schiffner@gmail.at";
         $user8->password = bcrypt('antonia');
         $user8->save();
     }
