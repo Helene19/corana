@@ -29,7 +29,7 @@ class UsersTableSeeder extends Seeder
         $admin1->city = "St. Florian";
         $admin1->postcode = 4490;
         $admin1->email = "lisa.mueller@gmail.com";
-        $admin1->password = bcrypt('secret');
+        $admin1->password = bcrypt('lisa');
         $admin1->save();
 
         $admin2 = new User();
@@ -46,7 +46,7 @@ class UsersTableSeeder extends Seeder
         $admin2->city = "Wien";
         $admin2->postcode = 1010;
         $admin2->email = "tomHuber@gmail.com";
-        $admin2->password = bcrypt('secret');
+        $admin2->password = bcrypt('thomas');
         $admin2->save();
 
         $user1 = new User();
@@ -63,7 +63,7 @@ class UsersTableSeeder extends Seeder
         $user1->city = "Wien";
         $user1->postcode = 1210;
         $user1->email = "hilde.bauer@gmail.com";
-        $user1->password = bcrypt('secret');
+        $user1->password = bcrypt('hildegard');
         $user1->save();
 
         $user2 = new User();
@@ -80,7 +80,7 @@ class UsersTableSeeder extends Seeder
         $user2->city = "Liezen";
         $user2->postcode = 8940;
         $user2->email = "gitti.stieger@gmail.com";
-        $user2->password = bcrypt('secret');
+        $user2->password = bcrypt('brigitte');
         $user2->save();
 
         $user3 = new User();
@@ -97,7 +97,7 @@ class UsersTableSeeder extends Seeder
         $user3->city = "Gallspach";
         $user3->postcode = 4713;
         $user3->email = "jo.mayr45@gmx.at";
-        $user3->password = bcrypt('secret');
+        $user3->password = bcrypt('jochen');
         $user3->save();
 
         $user4 = new User();
@@ -114,7 +114,7 @@ class UsersTableSeeder extends Seeder
         $user4->city = "Liezen";
         $user4->postcode = 8940;
         $user4->email = "felix.stieger@gmail.com";
-        $user4->password = bcrypt('secret');
+        $user4->password = bcrypt('felix');
         $user4->save();
 
         $user5 = new User();
@@ -131,7 +131,58 @@ class UsersTableSeeder extends Seeder
         $user5->city = "Wien";
         $user5->postcode = 1010;
         $user5->email = "lustig.ernst@gmx.at";
-        $user5->password = bcrypt('secret');
+        $user5->password = bcrypt('ernst');
         $user5->save();
+
+        $user6 = new User();
+        $user6->first_name = "Matthias";
+        $user6->last_name = "Lauber";
+        $user6->admin = false;
+        $user6->gender = "männlich";
+        $user6->birthdate = new DateTime('1950-02-11');
+        $user6->phonenumber = 06502312117;
+        $user6->sv_number = 1102308463;
+        $user6->vaccinated = false;
+        $user6->street = "Lauerstraße";
+        $user6->streetnr = "67";
+        $user6->city = "Wien";
+        $user6->postcode = 1010;
+        $user6->email = "m.lauber@gmx.at";
+        $user6->password = bcrypt('matthias');
+        $user6->save();
+
+        $user7 = new User();
+        $user7->first_name = "Lisa";
+        $user7->last_name = "Feldinger";
+        $user7->admin = false;
+        $user7->gender = "weiblich";
+        $user7->birthdate = new DateTime('1945-01-12');
+        $user7->phonenumber = 06502311711;
+        $user7->sv_number = 1201458447;
+        $user7->vaccinated = false;
+        $user7->street = "Lieferstraße";
+        $user7->streetnr = "60";
+        $user7->city = "St. Pölten";
+        $user7->postcode = 3100;
+        $user7->email = "lisaFeldinger@gmx.at";
+        $user7->password = bcrypt('lisa');
+        $user7->save();
+
+        $user8 = new User();
+        $user8->first_name = "Antonia";
+        $user8->last_name = "Schiffner";
+        $user8->admin = false;
+        $user8->gender = "weiblic";
+        $user8->birthdate = new DateTime('1941-01-19');
+        $user8->phonenumber = 065011117;
+        $user8->sv_number = 1901411122;
+        $user8->vaccinated = false;
+        $user8->street = "Fliegerstraße";
+        $user8->streetnr = "23d";
+        $user8->city = "Gunskirchen";
+        $user8->postcode = 4650;
+        $user8->email = "antonia.schiffner@gmx.at";
+        $user8->password = bcrypt('antonia');
+        $user8->save();
     }
 }
